@@ -1,21 +1,12 @@
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+from Projet.core.database import Base
 
-from datetime import date
-from typing import Optional, List
-from sqlmodel import Field, Relationship, SQLModel
-
-
-class Author(SQLModel, table=True):
-    """Table des auteurs"""
-
+class Author(Base):
     __tablename__ = "authors"
 
-    id: Optional[int] = Field(default=None, primary_key=True)
-    first_name: str = Field(index=True)
-    last_name: str = Field(index=True)
-    birth_date: date
-    country_iso: str = Field(max_length=2)  # Code ISO du pays
-    bio: Optional[str] = None
-    death_date: Optional[date] = None
-    website_url: Optional[str] = None
+    id = Column(Integer, primary_key=True, index=True)
+    first_name = Column(String, nullable=False)
+    last_name = Column(String, nullable=False)
 
-    # Relation avec les livres
+    books = relationship("Book", back_populates="author")

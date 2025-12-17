@@ -1,15 +1,15 @@
 from pydantic import BaseModel
-from datetime import date
 
 
 class AuthorCreate(BaseModel):
     first_name: str
     last_name: str
-    birth_date: date
 
 
-class AuthorResponse(AuthorCreate):
+class AuthorResponse(BaseModel):
     id: int
+    first_name: str
+    last_name: str
 
     class Config:
         orm_mode = True
