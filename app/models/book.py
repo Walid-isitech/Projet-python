@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Enum as SqlEnum
 from sqlalchemy.orm import relationship
 
-from Projet.core.database import Base
-from Projet.models.categories import BookCategory
+from app.core.database import Base
+from app.models.categories import BookCategory
 
 
 class Book(Base):

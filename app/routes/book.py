@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from Projet.schemas.book import BookCreate, BookResponse
-from Projet.models.book import Book
-from Projet.core.database import get_db
+from app.schemas.book import BookCreate, BookResponse
+from app.models.book import Book
+from app.core.database import get_db
 from fastapi import HTTPException
 
 
